@@ -16,9 +16,12 @@ gem 'coffee-rails',            '4.1.0'
 gem 'jquery-rails',            '4.0.3'
 gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
+gem 'merit' 
 gem 'sdoc',                    '0.4.0', group: :doc
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.0"
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
@@ -26,6 +29,12 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'launchy'
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
