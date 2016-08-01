@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731222850) do
+ActiveRecord::Schema.define(version: 20160731232807) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -65,17 +65,20 @@ ActiveRecord::Schema.define(version: 20160731222850) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.integer  "sash_id"
-    t.integer  "level",           default: 0
-    t.boolean  "admin",           default: false
+    t.integer  "level",             default: 0
+    t.boolean  "admin",             default: false
     t.integer  "turkey_count"
     t.integer  "deer_count"
     t.integer  "moose_count"
     t.integer  "bear_count"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
