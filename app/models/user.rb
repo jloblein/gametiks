@@ -43,8 +43,9 @@ class User < ActiveRecord::Base
   end
   
   # Activates an account.
-  def activate
-    update_columns(activated: FILL_IN, activated_at: FILL_IN)
+  def activate_account
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
   end
 
   # Sends activation email.
