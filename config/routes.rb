@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  
+  #root 'avatars#index'
   root 'static_pages#home'
-  get '/help'    =>  'static_pages#help'
-  get '/about'   =>  'static_pages#about'
+  get '/forum'    =>  'static_pages#forum'
   get '/contact' =>  'static_pages#contact'
   get '/signup'  =>  'users#new'
   post '/signup' => 'users#create'
@@ -10,4 +11,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy' 
   resources :users
   resources :account_activations, only: [:edit]
+  resources :harvests
 end
+  
+

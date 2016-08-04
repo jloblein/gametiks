@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  has_merit
+  
+  # Merit gem
+  #has_merit
+  
+  # Carrierwave gem Uploader
+   mount_uploader :avatar, AvatarUploader
 
   attr_accessor :remember_token, :activation_token
   before_save :downcase_email

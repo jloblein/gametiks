@@ -1,0 +1,50 @@
+<%= form_for @harvest, html: { multipart: true } do |f| %>
+  <% if @harvest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@harvest.errors.count, "error") %> prohibited this pet from being saved:</h2>
+ 
+      <ul>
+      <% @harvest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.radio_button :type, :checked => false %>
+  <%= label_tag 1, 'Turkey' %>
+  
+  <%= f.radio_button :type, :checked => false %>
+  <%= label_tag 2, 'Deer' %>
+  
+  <%= f.radio_button :type, :checked => false %>
+  <%= label_tag 3, 'Moose' %>
+  
+  <%= f.radio_button :type, :checked => false %>
+  <%= label_tag 4, 'Bear' %>
+  
+  <br>
+  <br>
+
+  <%= f.label 'Name' %>
+  <%= f.text_field :name, class: 'form-control' %>
+  
+  <%= f.label 'Coordinates: Latitude (Optional)' %>
+  <%= f.text_field :latitude, class: 'form-control' %>
+  
+  <%= f.label 'Coordinates: Longitude (Optional)' %>
+  <%= f.text_field :longitude, class: 'form-control' %>
+  
+  <%= f.label 'Date of Harvest (Optional)' %>
+  <%= f.text_field :date, class: 'form-control' %>
+
+  <%= f.label :image %>
+  <%= f.file_field :image, class: 'form-control' %>
+
+  <%= f.submit class: "btn btn-primary" %>
+
+<% end %>
+
+
+  
+

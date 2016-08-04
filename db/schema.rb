@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731232807) do
+ActiveRecord::Schema.define(version: 20160803003514) do
+
+  create_table "avatars", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "attachment"
+  end
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -23,6 +30,18 @@ ActiveRecord::Schema.define(version: 20160731232807) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
+
+  create_table "harvests", force: :cascade do |t|
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "type"
+    t.decimal  "latitude",    precision: 10, scale: 6
+    t.decimal  "longitude",   precision: 10, scale: 6
+    t.string   "date"
+    t.string   "name"
+  end
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -79,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160731232807) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
