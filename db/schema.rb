@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803003514) do
-
-  create_table "avatars", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "attachment"
-  end
+ActiveRecord::Schema.define(version: 20160802223254) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
