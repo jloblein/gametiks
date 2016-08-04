@@ -24,18 +24,6 @@ ActiveRecord::Schema.define(version: 20160802223254) do
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
 
-  create_table "harvests", force: :cascade do |t|
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "type"
-    t.decimal  "latitude",    precision: 10, scale: 6
-    t.decimal  "longitude",   precision: 10, scale: 6
-    t.string   "date"
-    t.string   "name"
-  end
-
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "action_method"
