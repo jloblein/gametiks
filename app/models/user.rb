@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
+  has_many :harvests, dependent: :destroy
   # Merit gem
   #has_merit
   
