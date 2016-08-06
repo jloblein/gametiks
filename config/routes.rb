@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   #root 'avatars#index'
   root 'static_pages#home'
+  #get '/gallery' => 'harvests#index'
   get '/forum'    =>  'static_pages#forum'
   get '/contact' =>  'static_pages#contact'
   get '/signup'  =>  'users#new'

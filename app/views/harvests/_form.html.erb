@@ -12,15 +12,29 @@
   <% end %>
   
   
-  <%= f.radio_button :animal_type, class: 'form-control' %><%= f.label :turkey %>
+  <%= f.radio_button :animal_type, value: 1, class: 'form-control' %><%= f.label :turkey %>
  
-  <%= f.radio_button :animal_type, class: 'form-control' %> <%= f.label :deer %>
+  <%= f.radio_button :animal_type, value: 2, class: 'form-control' %> <%= f.label :deer %>
  
-  <%= f.radio_button :animal_type, class: 'form-control' %> <%= f.label :moose %>
+  <%= f.radio_button :animal_type, value: 3, class: 'form-control' %> <%= f.label :moose %>
  
-  <%= f.radio_button :animal_type, class: 'form-control' %> <%= f.label :bear %>
+  <%= f.radio_button :animal_type, value: 4, class: 'form-control' %> <%= f.label :bear %>
   <br>
   <br>
+  
+  <%= f.radio_button :weapon_type, value: 1, class: 'form-control' %> <%= f.label :rifle %>
+  <%= f.radio_button :weapon_type, value: 2, class: 'form-control' %> <%= f.label :shotgun %>
+  <%= f.radio_button :weapon_type, value: 3, class: 'form-control' %> <%= f.label :bow %>
+  <%= f.radio_button :weapon_type, value: 4, class: 'form-control' %> <%= f.label :other %>
+  
+  <br>
+  <br>
+  
+  <%= f.label 'Description (Optional)' %>
+  <%= f.text_field :description, class: 'form-control' %>
+  
+  <%= f.label 'Weight (Optional)' %>
+  <%= f.text_field :weight, class: 'form-control' %> 
   
   <%= f.label :image %>
   <%= f.file_field :image %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805015345) do
+ActiveRecord::Schema.define(version: 20160805221127) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20160805015345) do
     t.datetime "date_of_harvest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.integer  "weight"
+    t.string   "image"
   end
 
   add_index "harvests", ["user_id"], name: "index_harvests_on_user_id"

@@ -194,3 +194,11 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* Gallery */
+
+table .gallery {
+  max-width: 5;
+  th, td {
+  padding: 15px;
+}}

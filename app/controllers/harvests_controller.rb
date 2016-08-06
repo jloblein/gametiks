@@ -1,6 +1,6 @@
 class HarvestsController < ApplicationController
   before_action :set_harvest, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /harvests
   # GET /harvests.json
   def index
@@ -10,6 +10,7 @@ class HarvestsController < ApplicationController
   # GET /harvests/1
   # GET /harvests/1.json
   def show
+    @harvest = Harvest.find(params[:id])
   end
 
   # GET /harvests/new
@@ -25,14 +26,15 @@ class HarvestsController < ApplicationController
   # POST /harvests.json
   def create
     @harvest = Harvest.new(harvest_params)
+    @harvest.user_id = current_user.id
 
     respond_to do |format|
       if @harvest.save
-        format.html { redirect_to @harvest, notice: 'Harvest was successfully created.' }
-        format.json { render :show, status: :created, location: @harvest }
+        format.html { redirect_to current_user }
+        #format.json { render :show, status: :created, location: @harvest }
       else
         format.html { render :new }
-        format.json { render json: @harvest.errors, status: :unprocessable_entity }
+        #format.json { render json: @harvest.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,7 +44,7 @@ class HarvestsController < ApplicationController
   def update
     respond_to do |format|
       if @harvest.update(harvest_params)
-        format.html { redirect_to @harvest, notice: 'Harvest was successfully updated.' }
+        format.html { redirect_to @harvest }
         format.json { render :show, status: :ok, location: @harvest }
       else
         format.html { render :edit }
@@ -69,6 +71,6 @@ class HarvestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def harvest_params
-      params[:harvest]
+      params.require(:harvest).permit(:weapon_type, :animal_type, :weight, :description, :image)
     end
 end

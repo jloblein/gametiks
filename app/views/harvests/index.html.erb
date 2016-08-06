@@ -1,25 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Harvests</h1>
+<h1>Gallery</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @harvests.each do |harvest| %>
-      <tr>
-        <td><%= link_to 'Show', harvest %></td>
-        <td><%= link_to 'Edit', edit_harvest_path(harvest) %></td>
-        <td><%= link_to 'Destroy', harvest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<table class="gallery">
+  <tr><% @harvests.each do |harvest| %>
+    <td><%= image_tag harvest.image_url(:thumb) %>
+    </td>
+    
+  </tr><% end %>
 </table>
 
-<br>
 
 <%= link_to 'New Harvest', new_harvest_path %>

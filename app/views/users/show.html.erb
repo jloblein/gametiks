@@ -16,8 +16,14 @@
         </h2>
     </section>
   </aside>
-  <section class="col-md-4">
-    
+  <section class="col-md-8"><h2>Harvests</h2>
+  <table>
+      <tr><% @user.harvests.each do |harvest| %>
+        <td>
+          <%= image_tag harvest.image_url(:thumb) %>
+        </td><% end %>
+      </tr>
+    </table>
   </section>
 </div>
 
