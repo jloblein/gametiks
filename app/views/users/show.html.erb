@@ -16,6 +16,7 @@
         </h2>
     </section>
   </aside>
+  
   <section class="col-md-8"><h2>Harvests</h2>
   <table>
       <tr><% @user.harvests.each do |harvest| %>
@@ -24,6 +25,51 @@
         </td><% end %>
       </tr>
     </table>
+  </section>
+  <section class="col-md-8"><h2>Map</h2>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 44.502, lng: -69.009},
+          zoom: 8,
+          mapTypeId: 'terrain',
+          styles: [
+            {
+              featureType: 'landscape',
+              stylers: [
+                { saturation: -50 }
+              ]
+            },{
+              featureType: 'water',
+              stylers: [
+                { hue: '#174a67' },
+                { saturation: 50 },
+                { lightness: -80 }
+              ]
+            },{
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap" async defer>
+    </script>
+    <section class="col-md-8"><h2>Awards</h2>
+  </section>
   </section>
 </div>
 

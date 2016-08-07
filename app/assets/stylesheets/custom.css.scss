@@ -118,6 +118,7 @@ footer {
 aside {
   section.user_info {
     margin-top: 20px;
+    min-height: 600px;
   }
   section {
     padding: 10px 0;
@@ -202,3 +203,19 @@ table .gallery {
   th, td {
   padding: 15px;
 }}
+
+/* Map */ 
+
+#map-container {
+   height: 400px;
+   border-radius: 16px 16px;
+   border-color: #fff;
+   border-style: solid;
+   box-shadow: 2px 2px 10px #B1B1B1;
+   margin-top: 25px;
+   border-width: 7px;
+ }
+ #map {
+   height: 384px;
+   width: 100%;
+ }

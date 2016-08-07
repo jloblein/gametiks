@@ -7,6 +7,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap">
+    </script>
   </head>
   <body>
     <%= render 'layouts/header' %>
