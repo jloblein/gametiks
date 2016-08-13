@@ -2,7 +2,6 @@
   <% if @harvest.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@harvest.errors.count, "error") %> prohibited this harvest from being saved:</h2>
-
       <ul>
       <% @harvest.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -30,13 +29,21 @@
   <%= f.text_field :description, class: 'form-control' %>
   <h2>Plot Your Harvest</h2>
   <div id="map"></div>
-    <script>
-      // In the following example, markers appear when the user clicks on the map.
-// Each marker is labeled with a single alphabetical character.
+    
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script>
+    
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
 
 function initialize() {
+  
   var belfast = { lat: 44.502, lng: -69.009 };
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,
@@ -82,24 +89,26 @@ function initialize() {
 function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
   // from the array of alphabetical characters.
+  
   var marker = new google.maps.Marker({
     position: location,
-    //draggable: true,
+    draggable: true,
     label: labels[labelIndex++ % labels.length],
     map: map
   });
 }
 
+function initMap(){
+  initialize();
+}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap" async defer>
-    </script>
-  <br>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</script>
+
+
+
+
+
+
+//
