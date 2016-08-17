@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  validates :street_address, presence: true
+  validates :city, presence: true, format: /\A[a-zA-Z]+(?:[\s-][a-zA-Z]+)*\z/ 
+  validates :state, presence: true, format: /[A-Z][A-Z]/
+  validates :zipcode, presence: true, format: /\A[0-9]{5}(-[0-9]{4})?\z/ 
   
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 
@@ -34,7 +38,6 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, User.digest(remember_token))
   end
   
-  # Returns true if the given token matches the digest.
   # Returns true if the given token matches the digest.
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")

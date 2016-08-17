@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815035120) do
+ActiveRecord::Schema.define(version: 20160817001337) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -96,6 +96,10 @@ ActiveRecord::Schema.define(version: 20160815035120) do
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.string   "avatar"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
