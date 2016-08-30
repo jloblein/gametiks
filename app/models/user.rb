@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   
   # Carrierwave gem Uploader
    mount_uploader :avatar, AvatarUploader
+   
+  # Geocoder gem
+  geocoded_by :full_address
+  after_validation :geocode # if: -> (obj){ obj.address.present? and obj.address_changed? }
 
   attr_accessor :remember_token, :activation_token
   before_save :downcase_email
@@ -60,6 +64,12 @@ class User < ActiveRecord::Base
     UserMailer.account_activation(self).deliver_now
   end
   
+  # return the full address for geocoder
+    def full_address
+      #"117 oakwood ave, west hartford, ct, 06119"
+    [street_address, city, state, zipcode].join(', ')
+    end
+  
   private
 
     # Converts email to all lower-case.
@@ -72,4 +82,6 @@ class User < ActiveRecord::Base
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
+    
+    
 end

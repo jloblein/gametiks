@@ -59,13 +59,13 @@
     
 
 var markers = [];
+var userLat = <%= @user.latitude %>;
+var userLng = <%= @user.longitude %>;
 
 function initialize() {
-  
-  var belfast = { lat: 44.502, lng: -69.009 };
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,
-    center: belfast,
+    center: { lat: userLat, lng: userLng },
     mapTypeId: 'terrain',
     styles: [
             {
@@ -97,15 +97,15 @@ function initialize() {
           ]
   });
   
-  
   // This event listener calls addMarker() when the map is clicked.
   google.maps.event.addListener(map, 'click', function(event) {
+
     addMarker(event.latLng, map);
     map.panTo(event.latLng);
-        var latitude = map.getCenter().lat().toFixed(6);
-				var longitude = map.getCenter().lng().toFixed(6);
-				document.getElementById("latitude").value = latitude;
-				document.getElementById("longitude").value = longitude;
+    var latitude = map.getCenter().lat().toFixed(6);
+		var longitude = map.getCenter().lng().toFixed(6);
+		document.getElementById("latitude").value = latitude;
+		document.getElementById("longitude").value = longitude;
 				
   });
 }
@@ -129,6 +129,15 @@ function addMarker(location, map) {
     map: map
   });
   
+  //add event to marker object on change
+  google.maps.event.addListener(marker, 'dragend', function(event) {
+    //alert(event.latLng.lat());
+    var latitude = event.latLng.lat().toFixed(6);
+		var longitude = event.latLng.lng().toFixed(6);
+		document.getElementById("latitude").value = latitude;
+		document.getElementById("longitude").value = longitude;
+  });
+
   markers.push(marker);
 }
 

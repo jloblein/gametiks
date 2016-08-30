@@ -29,10 +29,12 @@
   <section class="col-md-8"><h2>Map</h2>
     <div id="map"></div>
     <script>
+      var userLat = <%= @user.latitude %>;
+      var userLng = <%= @user.longitude %>;
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 44.502, lng: -69.009},
+          center: {lat:userLat, lng: userLng},
           zoom: 8,
           mapTypeId: 'terrain',
           styles: [
