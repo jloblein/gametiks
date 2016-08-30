@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20160823022807) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
-    t.string   "avatar"
+  
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
