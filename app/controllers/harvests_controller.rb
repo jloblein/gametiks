@@ -31,6 +31,7 @@ class HarvestsController < ApplicationController
 
     respond_to do |format|
       if @harvest.save
+        flash[:success] = "Harvest successfully created"
         format.html { redirect_to current_user }
         format.json { render :show, status: :created, location: @harvest }
       else

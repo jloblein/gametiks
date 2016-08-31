@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831164845) do
+ActiveRecord::Schema.define(version: 20160831184022) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20160831164845) do
 
   create_table "harvests", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "weapon_type"
+    t.string   "animal_type"
+    t.string   "weapon_type"
     t.datetime "date_of_harvest"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160831164845) do
     t.string   "image"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "animal_type"
   end
 
   add_index "harvests", ["user_id"], name: "index_harvests_on_user_id"

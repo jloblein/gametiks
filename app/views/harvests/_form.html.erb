@@ -10,17 +10,17 @@
     </div>
   <% end %>
   <h2>Animal Type</h2>
-  <%= f.radio_button :animal_type, value: 'turkey' %><%= f.label :turkey %>
-  <%= f.radio_button :animal_type, value: 'deer' %><%= f.label :deer %>
-  <%= f.radio_button :animal_type, value: 'moose' %><%= f.label :moose %>
-  <%= f.radio_button :animal_type, value: 'bear' %><%= f.label :bear %>
+  <%= f.radio_button(:animal_type, "turkey") %><%= f.label :turkey %>
+  <%= f.radio_button(:animal_type, "deer") %><%= f.label :deer %>
+  <%= f.radio_button(:animal_type, "moose") %><%= f.label :moose %>
+  <%= f.radio_button(:animal_type, "bear") %><%= f.label :bear %>
   <br>
   <br>
   <h2>Weapon Type</h2>
-  <%= f.radio_button :weapon_type, value: 1, class: 'form-control' %> <%= f.label :rifle %>
-  <%= f.radio_button :weapon_type, value: 2, class: 'form-control' %> <%= f.label :shotgun %>
-  <%= f.radio_button :weapon_type, value: 3, class: 'form-control' %> <%= f.label :bow %>
-  <%= f.radio_button :weapon_type, value: 4, class: 'form-control' %> <%= f.label :other %>
+  <%= f.radio_button(:weapon_type, "rifle") %><%= f.label :rifly %>
+  <%= f.radio_button(:weapon_type, "shotgun") %><%= f.label :shotgun %>
+  <%= f.radio_button(:weapon_type, "bow") %><%= f.label :bow %>
+  <%= f.radio_button(:weapon_type, "other") %><%= f.label :other %>
   <br>
   <br>
   <%= f.label 'Weight (Optional)' %>
