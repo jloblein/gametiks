@@ -10,10 +10,10 @@
     </div>
   <% end %>
   <h2>Animal Type</h2>
-  <%= f.radio_button :animal_type, value: 1, class: 'form-control' %><%= f.label :turkey %>
-  <%= f.radio_button :animal_type, value: 2, class: 'form-control' %> <%= f.label :deer %>
-  <%= f.radio_button :animal_type, value: 3, class: 'form-control' %> <%= f.label :moose %>
-  <%= f.radio_button :animal_type, value: 4, class: 'form-control' %> <%= f.label :bear %>
+  <%= f.radio_button :animal_type, value: 'turkey' %><%= f.label :turkey %>
+  <%= f.radio_button :animal_type, value: 'deer' %><%= f.label :deer %>
+  <%= f.radio_button :animal_type, value: 'moose' %><%= f.label :moose %>
+  <%= f.radio_button :animal_type, value: 'bear' %><%= f.label :bear %>
   <br>
   <br>
   <h2>Weapon Type</h2>
@@ -28,21 +28,10 @@
   <%= f.label 'Details (Optional)' %>
   <%= f.text_field :description, class: 'form-control' %>
   <h2>Plot Your Harvest</h2>
-  <div class="col-md-6">
-			<!-- 
-			<div class="col-md-6 pull-left">
-				<span>Latitude</span>
-				<input type="text" id="latitude" class="form-control">
-			</div>
-			<div class="input-group col-md-6 pull-left">
-				<span class="input-group-addon" >Longitude</span>
-				<input type="text" class="form-control" id="longitude">
-			</div>-->	
-		</div>	
   <div id="map"></div>
 <div class"col-lg-12">
- <%= f.number_field :latitude, id: :latitude, class: "col-lg-4" %>
- <%= f.number_field :longitude, id: :longitude, class: "col-lg-4" %> 
+ <%= f.number_field :latitude, id: :latitude, class: "col-lg-4", step: "any" %>
+ <%= f.number_field :longitude, id: :longitude, class: "col-lg-4", step: "any" %> 
 </div>
   <br>
   <div class="col-md-6">
