@@ -22,6 +22,18 @@ User.create!(name:  "Brody Gibbs",
              state: "CT",
              zipcode: "04915")
              
+User.create!(name:  "Ian Robbins",
+             email: "ian.robbins.1983@gmail.com",
+             password:              "password",
+             password_confirmation: "password",
+            admin: true,
+             activated: true,
+             activated_at: Time.zone.now,
+             street_address: "154 Washington Ave", 
+             city: "Portland",
+             state: "ME",
+             zipcode: "04101")
+             
 User.create!(name:  "Katherine Loblein",
              email: "kloblein@yahoo.com",
              password:              "password",

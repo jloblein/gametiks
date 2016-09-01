@@ -19,11 +19,11 @@
   
   <section class="col-md-8"><h2>Harvests</h2>
   <table>
-      <tr><% @user.harvests.each do |img| %>
+      <tr><% @user.harvests.each do |harvest| %>
         <td>
-          <%= image_tag img.image_url(:thumb).to_s %>
-          <%# image_tag(harvest.image_url(:thumb)) %>
-        </td><% end %>
+          <%= image_tag harvest.image_url(:thumb) %>
+        </td>
+        <% end %>
       </tr>
     </table>
   </section>

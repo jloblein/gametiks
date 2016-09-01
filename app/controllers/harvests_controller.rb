@@ -26,17 +26,18 @@ class HarvestsController < ApplicationController
   # POST /harvests
   # POST /harvests.json
   def create
+   
+   
+   
     @harvest = Harvest.new(harvest_params)
     @harvest.user_id = current_user.id
-
     respond_to do |format|
       if @harvest.save
         flash[:success] = "Harvest successfully created"
         format.html { redirect_to current_user }
         format.json { render :show, status: :created, location: @harvest }
       else
-        format.html { render :new }
-        format.json { render json: @harvest.errors, status: :unprocessable_entity }
+        render :new 
       end
     end
   end
@@ -73,6 +74,6 @@ class HarvestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def harvest_params
-      params.require(:harvest).permit(:weapon_type, :animal_type, :weight, :description, :image)
+      params.require(:harvest).permit(:weapon_type, :animal_type, :weight, :description, :image, :latitude, :longitude)
     end
 end

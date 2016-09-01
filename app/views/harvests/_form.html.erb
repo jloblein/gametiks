@@ -23,16 +23,14 @@
   <%= f.radio_button(:weapon_type, "other") %><%= f.label :other %>
   <br>
   <br>
-  <%= f.label 'Weight (Optional)' %>
-  <%= f.text_field :weight, class: 'form-control' %> 
-  <%= f.label 'Details (Optional)' %>
-  <%= f.text_field :description, class: 'form-control' %>
+  <%= f.label 'Weight (Optional)' %><%= f.text_field :weight, class: 'form-control' %> 
+  <%= f.label 'Details (Optional)' %><%= f.text_field :description, class: 'form-control' %>
   <h2>Plot Your Harvest</h2>
   <div id="map"></div>
-<div class"col-lg-12">
- <%= f.number_field :latitude, id: :latitude, class: "col-lg-4", step: "any" %>
- <%= f.number_field :longitude, id: :longitude, class: "col-lg-4", step: "any" %> 
-</div>
+  <div class"col-lg-12">
+   <%= f.number_field :latitude, id: :latitude, class: "col-lg-4", step: 'any' %>
+   <%= f.number_field :longitude, id: :longitude, class: "col-lg-4", step: 'any' %> 
+  </div>
   <br>
   <div class="col-md-6">
   <%= f.label :image %>

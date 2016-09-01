@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831184022) do
+ActiveRecord::Schema.define(version: 20160901022914) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20160831184022) do
     t.string   "description"
     t.integer  "weight"
     t.string   "image"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "harvests", ["user_id"], name: "index_harvests_on_user_id"
