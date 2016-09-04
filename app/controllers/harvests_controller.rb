@@ -22,6 +22,8 @@ class HarvestsController < ApplicationController
   # GET /harvests/1/edit
   def edit
   end
+  
+ 
 
   # POST /harvests
   # POST /harvests.json

@@ -8,4 +8,6 @@ class Harvest < ActiveRecord::Base
   # validates :weapon_type, presence: true
   # validates :image, presence: true
   
+   
+  
 end

@@ -2,6 +2,9 @@
 <div class="row">
   <aside class="col-md-3">
     <section class="user_info">
+      
+      
+      <h1></h1>
         <%= image_tag @user.avatar_url(:thumb) if @user.avatar? %>
         <h3>
           <%= @user.name %>
@@ -20,15 +23,23 @@
   <section class="col-md-8"><h2>Harvests</h2>
   <table>
       <tr><% @user.harvests.each do |harvest| %>
+        
         <td>
           <%= image_tag harvest.image_url(:thumb) %>
         </td>
         <% end %>
+       
       </tr>
     </table>
   </section>
   <section class="col-md-8"><h2>Map</h2>
     <div id="map"></div>
+      
+      <%# array = [] %>
+      <%# @user.harvests.each do |harvest| %>
+      <%#= array.push [harvest.latitude, harvest.longitude] %>
+      <%# end %>
+      
     <script>
       var userLat = <%= @user.latitude %>;
       var userLng = <%= @user.longitude %>;
@@ -67,11 +78,27 @@
             }
           ]
         });
+        var userHarvests = gon.harvestCoords;
+      for(var i = 0; i < userHarvests.length; i++)
+          {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(userHarvests[i][0], userHarvests[i][1]),
+                map: map,
+                title: 'test'
+            });
+          };
+        
       }
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+      
     </script>
-    
+      
+   
     <section class="col-md-8"><h2>Awards</h2>
   </section>
   </section>
 </div>
+      
+
 
