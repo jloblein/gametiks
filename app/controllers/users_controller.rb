@@ -11,12 +11,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated
    
+   # Gather user's harvests coordinates
     @coords = []
-    
     @user.harvests.each do |harvest| 
     @coords.push [harvest.latitude, harvest.longitude]
     end
-    
     gon.harvestCoords = @coords
     
   end

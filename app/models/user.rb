@@ -2,9 +2,17 @@ class User < ActiveRecord::Base
   has_many :harvests, dependent: :destroy
   # Merit gem
   #has_merit
-  
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :avatar, styles: {
+    profile: '200x200#'
+  }
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+
   # Carrierwave gem Uploader
-   mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
    
   # Geocoder gem
   geocoded_by :full_address

@@ -7,9 +7,10 @@
   src:font-url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
 } 
 
-/* mixins, variables, etc. */
 
-
+// variables
+$gametiks-gray: rgb(192,192,192);
+$gametiks-green: #384947;
 $gray-medium-light: #eaeaea;
 
 
@@ -133,7 +134,6 @@ footer {
 aside {
   section.user_info {
     margin-top: 20px;
-    min-height: 600px;
   }
   section {
     padding: 10px 0;
@@ -153,6 +153,37 @@ aside {
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 10px;
+    }
+    /* Users Level */
+
+    #user_points {
+      width: 200px;
+      background-color: black;
+      margin: 0;
+      padding: 6px;
+      color: white;
+      font-size: 20px;
+      text-align: right;
+      display: block;
+    }
+    
+    #user_level {
+      font-family: impact;
+      width: 200px;
+      height: 120px;
+      background-color: $gametiks-green;
+      padding-top: 50px;
+      letter-spacing: 3px;
+      color: $gametiks-gray;
+      font-size: 100px;
+      text-align: center;
+      display: block;
+    }
+    
+    .score_font {
+      font-size: 10px;
+      font-family: arial;
+      vertical-align: bottom;
     }
   }
 }
@@ -198,6 +229,8 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+
 
 /* Users leaderboard */
 
