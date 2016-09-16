@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// variables
+$gametiks-gray: rgb(192,192,192);
+$gametiks-green: #384947;
+$gray-medium-light: #eaeaea;
 
 h3, h4 {
   font-family: arial;
@@ -8,3 +12,35 @@ h3, h4 {
   font-size: 1.4em;
   text-align: left;
 }
+
+/* Users Level */
+
+    #user_points {
+      width: 200px;
+      background-color: black;
+      margin: 0;
+      padding: 6px;
+      color: white;
+      font-size: 20px;
+      text-align: right;
+      display: block;
+    }
+    
+    #user_level {
+      font-family: impact;
+      width: 200px;
+      height: 120px;
+      background-color: $gametiks-green;
+      padding-top: 50px;
+      letter-spacing: 3px;
+      color: $gametiks-gray;
+      font-size: 100px;
+      text-align: center;
+      display: block;
+    }
+    
+    .score_font {
+      font-size: 10px;
+      font-family: arial;
+      vertical-align: bottom;
+    }
