@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   #has_merit
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
-    profile: '200x200#'
+    square: '220x220#'
   }
 
   # Validate the attached image is image/jpg, image/png, etc

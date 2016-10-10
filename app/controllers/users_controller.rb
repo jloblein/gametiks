@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   
   def index
+    gon.clear
     @users = User.where(activated: true).paginate(page: params[:page])
   end
   
@@ -14,10 +15,9 @@ class UsersController < ApplicationController
    # Gather user's harvests coordinates
     @coords = []
     @user.harvests.each do |harvest| 
-    @coords.push [harvest.latitude, harvest.longitude]
+      @coords.push [harvest.latitude, harvest.longitude]
     end
     gon.harvestCoords = @coords
-    
   end
   
   def new
