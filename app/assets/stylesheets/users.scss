@@ -16,60 +16,56 @@ h3, h4 {
 /* sidebar */
 
 aside {
-  section.user_info {
+  
+  .user_info {
     margin-top: 20px;
   }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 10px;
-    }
-    /* Users Level */
+    
+  span {
+    display: block;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+    
+  h1 {
+    font-size: 1.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 10px;
+  }
 
-    .user_points {
-      width: 220px;
-      background-color: black;
-      margin: 0;
-      padding: 6px;
-      color: white;
-      font-size: 20px;
-      text-align: right;
-      display: block;
-    }
-    
-    .user_level {
-      font-family: impact;
-      width: 220px;
-      height: 120px;
-      background-color: $gametiks-green;
-      padding-top: 50px;
-      letter-spacing: 3px;
-      color: $gametiks-gray;
-      font-size: 100px;
-      text-align: center;
-      display: block;
-    }
-    
-    .score_font {
-      font-size: 10px;
-      font-family: arial;
-      vertical-align: bottom;
-    }
+  .user_points {
+    width: 220px;
+    background-color: black;
+    margin: 0;
+    padding: 6px;
+    color: white;
+    font-size: 20px;
+    text-align: right;
+    display: block;
   }
+  
+  .user_level {
+    font-family: impact;
+    width: 220px;
+    height: 120px;
+    background-color: $gametiks-green;
+    padding-top: 50px;
+    letter-spacing: 3px;
+    color: $gametiks-gray;
+    font-size: 100px;
+    text-align: center;
+    display: block;
+  }
+  
+  .score_font {
+    font-size: 10px;
+    font-family: arial;
+    vertical-align: bottom;
+  }
+  
 }
+
 
   
