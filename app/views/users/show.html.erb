@@ -88,17 +88,30 @@
       
   </section>
   <section class="col-md-8"><h2>Harvests</h2>
-  <table>
-      <tr><% @user.harvests.each do |harvest| %>
-        
-        <td>
-          <%= image_tag harvest.image.url(:thumb) %>
-          
-        </td>
-        <% end %>
-       
-      </tr>
-    </table>
+    <section class="harvest_catalog">
+      <% @user.harvests.each do |harvest| %>
+        <table class="harvest_block">
+          <tr>
+          <td>
+            <%= image_tag harvest.image.url(:thumb) %>
+          </td>
+          <td class="harvest_data">
+            <%= harvest.animal_type %> registered on <%= harvest.created_at %><br>
+            Weapon Used: <%= harvest.weapon_type %><br>
+            Description: <%= harvest.description %><br>
+            Weight: <%= harvest.weight %>
+          </td>
+          <td class="harvest_category">
+            <% if harvest.animal_type == "moose" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/moose.png") %>
+            <% elsif harvest.animal_type == "bear" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/bear.png") %>
+            <% elsif harvest.animal_type == "deer" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/deer.png") %>
+            <% else %><%= image_tag("https://s3.amazonaws.com/gametiks/images/turkey.png") %>
+            <% end %>
+          </td>
+          </tr>
+        </table>
+      <% end %>
+    </section>
   </section>
   
 </div>

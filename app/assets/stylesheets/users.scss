@@ -67,5 +67,31 @@ aside {
   
 }
 
+/* Harvest Catalog */
+
+.harvest_catalog {
+  
+  .harvest_block {
+    margin: 0 0 10px 0;
+  }
+  
+  .harvest_data {
+  padding: 20px;
+  background-color: $gametiks-green;
+  color: $gametiks-gray;
+  font-size: 14px;
+  line-height: 24px;
+  width: 400px;
+  }
+  
+  .harvest_category {
+    background-color: $gametiks-green;
+  }
+}
+
+
+
+
+
 
   
