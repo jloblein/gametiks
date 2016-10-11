@@ -28,9 +28,6 @@ class HarvestsController < ApplicationController
   # POST /harvests
   # POST /harvests.json
   def create
-   
-   
-   
     @harvest = Harvest.new(harvest_params)
     @harvest.user_id = current_user.id
     respond_to do |format|

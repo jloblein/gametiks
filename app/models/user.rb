@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :harvests, dependent: :destroy
+  
   # Merit gem
   #has_merit
   # This method associates the attribute ":avatar" with a file attachment

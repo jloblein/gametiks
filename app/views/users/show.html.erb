@@ -87,9 +87,9 @@
   </script>
       
   </section>
-  <section class="col-md-8"><h2>Harvests</h2>
+  <section class="col-md-8">
     <section class="harvest_catalog">
-      <% @user.harvests.each do |harvest| %>
+      <% @user.harvests.order('created_at DESC').each do |harvest| %>
         <table class="harvest_block">
           <tr>
           <td>
