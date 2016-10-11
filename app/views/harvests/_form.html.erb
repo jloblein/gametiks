@@ -24,7 +24,7 @@
   <br>
   <br>
   <%= f.label 'Weight (Optional)' %><%= f.text_field :weight, class: 'form-control' %> 
-  <%= f.label 'Details (Optional)' %><%= f.text_field :description, class: 'form-control' %>
+  <%= f.label 'Details (Optional)' %><%= f.text_field :description, :maxlength => 80, class: 'form-control' %>
   <h2>Plot Your Harvest</h2>
   <div id="map"></div>
   <div class"col-lg-12">

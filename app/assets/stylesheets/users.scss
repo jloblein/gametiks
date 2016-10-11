@@ -73,16 +73,16 @@ aside {
   
   .harvest_block {
     margin: 10px 0 0 0;
+    max-height: 180px;
   }
   
   .harvest_data {
   padding: 20px;
   background-color: $gametiks-green;
   color: $gametiks-gray;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 22px;
   width: 400px;
-  max-height: 180px;
   }
   
   .harvest_category {
