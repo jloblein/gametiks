@@ -9,6 +9,7 @@ class Harvest < ActiveRecord::Base
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   
+  
   # CarrierWave gem uploader
   # mount_uploader :image, ImageUploader
   

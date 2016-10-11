@@ -80,6 +80,22 @@ class User < ActiveRecord::Base
       #"117 oakwood ave, west hartford, ct, 06119"
     [street_address, city, state, zipcode].join(', ')
     end
+    
+  def points
+    totalPoints = 0
+    self.harvests.each do |i|
+    totalPoints += i.weight
+    end
+    sprintf '%06d', totalPoints
+  end
+  
+  def level
+    totalLevel = 0
+    self.harvests.each do |i|
+      totalLevel += 1
+    end
+    sprintf '%02d', totalLevel
+  end
   
   private
 

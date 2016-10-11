@@ -2,9 +2,13 @@
 <div class="row">
   <aside class="col-md-3">
     <section class="user_info">
-      <div class="user_points">000000</div>
+      <div class="user_points">
+       <%= @user.points %> 
+      </div>
         <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square)) : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
-        <div class="user_level">00</div>
+        <div class="user_level">
+          <%= @user.level %>  
+        </div>
         <h3>
           <%= @user.name %>
           <% if @user.admin %>
