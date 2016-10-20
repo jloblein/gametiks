@@ -11,12 +11,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated
-   
-   # Gather user's harvests coordinates
+   # Gather harvest coordinates for map
     @coords = []
     @user.harvests.each do |harvest| 
       @coords.push [harvest.latitude, harvest.longitude]
     end
+    # coordinates saved using gon gem to talk to javascript
     gon.harvestCoords = @coords
   end
   

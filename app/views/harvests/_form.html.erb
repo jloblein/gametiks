@@ -17,14 +17,14 @@
   <br>
   <br>
   <h2>Weapon Type</h2>
-  <%= f.radio_button(:weapon_type, "rifle") %><%= f.label :rifly %>
+  <%= f.radio_button(:weapon_type, "rifle") %><%= f.label :rifle %>
   <%= f.radio_button(:weapon_type, "shotgun") %><%= f.label :shotgun %>
   <%= f.radio_button(:weapon_type, "bow") %><%= f.label :bow %>
   <%= f.radio_button(:weapon_type, "other") %><%= f.label :other %>
   <br>
   <br>
-  <%= f.label 'Weight (Optional)' %><%= f.text_field :weight, class: 'form-control' %> 
-  <%= f.label 'Details (Optional)' %><%= f.text_field :description, :maxlength => 80, class: 'form-control' %>
+  <%= f.label 'Weight' %><%= f.text_field :weight, class: 'form-control' %> 
+  <%= f.label 'Details (Optional)' %><%= f.text_field :description, :maxlength => 72, class: 'form-control' %>
   <h2>Plot Your Harvest</h2>
   <div id="map"></div>
   <div class"col-lg-12">
@@ -40,9 +40,8 @@
     <%= f.submit %>
   </div>
 <% end %>
-<script>
-    
 
+<script>
 var markers = [];
 var userLat = <%= @user.latitude %>;
 var userLng = <%= @user.longitude %>;

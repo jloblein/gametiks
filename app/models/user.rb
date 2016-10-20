@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   has_many :harvests, dependent: :destroy
+  has_many :badges, dependent: :destroy
   
-  # Merit gem
-  #has_merit
+  # Merit gem for points system
+  has_merit
+  
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
     square: '220x220#'
@@ -10,10 +12,6 @@ class User < ActiveRecord::Base
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
-
-  # Carrierwave gem Uploader
-  # mount_uploader :avatar, AvatarUploader
    
   # Geocoder gem
   geocoded_by :full_address
@@ -75,20 +73,29 @@ class User < ActiveRecord::Base
     UserMailer.account_activation(self).deliver_now
   end
   
-  # return the full address for geocoder
+  # Join user's full address to center map
     def full_address
-      #"117 oakwood ave, west hartford, ct, 06119"
     [street_address, city, state, zipcode].join(', ')
     end
     
+  # Current user points (based on harvests)
   def points
     totalPoints = 0
     self.harvests.each do |i|
-    totalPoints += i.weight
+      if i.animal_type == "bear"
+        totalPoints += (i.weight * 4)
+      elsif i.animal_type == "moose"
+        totalPoints += (i.weight * 0.75).round
+      elsif i.animal_type == "turkey"
+        totalPoints += (i.weight * 10)
+      else # i.animal_type == "deer"
+        totalPoints += (i.weight * 4)
+      end
     end
     sprintf '%06d', totalPoints
   end
   
+  # Current user level
   def level
     totalLevel = 0
     self.harvests.each do |i|

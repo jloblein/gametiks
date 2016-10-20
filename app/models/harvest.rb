@@ -6,6 +6,8 @@ class Harvest < ActiveRecord::Base
     thumb: '180x180#'
   }
 
+  # validates :animal_type, :presence => { :if => 'animal_type.nil?' }
+  
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   
