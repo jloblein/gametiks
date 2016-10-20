@@ -24,7 +24,10 @@ RSpec.describe HarvestsController, type: :controller do
   # Harvest. As you add validations to Harvest, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    animal_type
+    animal_weight
+    weapon_type
+    image
   }
 
   let(:invalid_attributes) {

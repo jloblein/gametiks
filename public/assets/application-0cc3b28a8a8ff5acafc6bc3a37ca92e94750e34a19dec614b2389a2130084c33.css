@@ -16271,6 +16271,25 @@ table .gallery th, table .gallery td {
   height: 384px;
   width: 100%;
 }
+/* Harvest Catalog */
+/* line 10, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/harvests.scss */
+.harvest_catalog .harvest_block {
+  margin: 10px 0 0 0;
+  max-height: 180px;
+}
+/* line 15, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/harvests.scss */
+.harvest_catalog .harvest_data {
+  padding: 20px;
+  background-color: #384947;
+  color: silver;
+  font-size: 12px;
+  line-height: 22px;
+  width: 400px;
+}
+/* line 24, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/harvests.scss */
+.harvest_catalog .harvest_category {
+  background-color: #384947;
+}
 /* line 5, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/scaffolds.scss */
 .navbar {
   background-color: #384947;
@@ -16412,6 +16431,26 @@ aside .score_font {
   font-size: 10px;
   font-family: arial;
   vertical-align: bottom;
+}
+
+/* Harvest Catalog */
+/* line 74, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/users.scss */
+.harvest_catalog .harvest_block {
+  margin: 10px 0 0 0;
+  max-height: 180px;
+}
+/* line 79, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/users.scss */
+.harvest_catalog .harvest_data {
+  padding: 20px;
+  background-color: #384947;
+  color: silver;
+  font-size: 12px;
+  line-height: 22px;
+  width: 400px;
+}
+/* line 88, /home/ubuntu/workspace/gametiks/app/assets/stylesheets/users.scss */
+.harvest_catalog .harvest_category {
+  background-color: #384947;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

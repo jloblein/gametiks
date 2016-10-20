@@ -72,14 +72,15 @@ aside {
 .harvest_catalog {
   
   .harvest_block {
-    margin: 10px 0 0 0;
-    max-height: 180px;
+    margin: 0 auto;
+    border-bottom: 1px solid $gametiks-gray;
   }
   
   .harvest_data {
   padding: 20px;
   background-color: $gametiks-green;
   color: $gametiks-gray;
+  text-align: left;
   font-size: 12px;
   line-height: 22px;
   width: 400px;
