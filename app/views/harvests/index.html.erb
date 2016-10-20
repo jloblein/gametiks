@@ -3,7 +3,6 @@
 <h1>Gallery</h1>
 
 <% @harvests.order('created_at DESC').each do |harvest| %>
-<section class="center">
   <section class="harvest_catalog">
         <table class="harvest_block">
           <tr>
@@ -26,7 +25,6 @@
           </tr>
         </table>
       <% end %>
-      </section>
       </section>
 
 <%= link_to 'New Harvest', new_harvest_path %>
