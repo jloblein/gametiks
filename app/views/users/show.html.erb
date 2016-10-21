@@ -20,18 +20,19 @@
             <%= link_to 'Upload New Harvest', new_harvest_path %>
           <% end %>
         </h4>
-        <ul>
-          <% if current_user.badges.empty? %>
-            <li> No Badges to Display </li>
-            <% end %>
-          <% else %>
-            <% current_user.badges.each do |badge| %>
-            <li> <%= badge.name %></li>
-          <% end %>
-        </ul>
     </section>
-    
+    <section class="col-md-3"></section>
+        <div class="badges"><h3>BADGES</h3>
+            <% @user.clear_all_badges %>
+          <ul><% @user.load_badges %>
+              <% current_user.badges.each do |badge| %>
+              <li><%= image_tag badge.image %></li>
+              <% end %>
+          </ul>
+        </div>
+      </section>
   </aside>
+      
   <section class="col-md-8"><br>
     <div id="map"></div>
       
@@ -118,6 +119,7 @@
           </tr>
         </table>
       <% end %>
+      
     </section>
   </section>
   

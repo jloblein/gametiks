@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017145547) do
+ActiveRecord::Schema.define(version: 20161021144300) do
 
   create_table "badges", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20161017145547) do
   end
 
   add_index "badges", ["user_id"], name: "index_badges_on_user_id"
+
+# join table 
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.integer "badge_id"
+    t.integer "user_id"
+  end
 
   create_table "harvests", force: :cascade do |t|
     t.integer  "user_id"

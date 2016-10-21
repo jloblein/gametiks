@@ -72,4 +72,12 @@ User.create!(name:  "John Gibbs",
                 city: "Belfast",
                 state: "ME",
                 zipcode: "04915")
+                
+Badge.create!(title: 'gamer',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/gamer.jpg')
+              
+Badge.create!(title: 'harvester',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/harvester.jpg')
+              
+              
 end

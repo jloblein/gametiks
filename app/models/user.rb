@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :harvests, dependent: :destroy
-  has_many :badges, dependent: :destroy
+  has_and_belongs_to_many :badges, dependent: :destroy
   
  
   
@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
   # Current user points (based on harvests)
   def points
     totalPoints = 0
-    self.harvests.each do |i|
+    harvests.each do |i|
       if i.animal_type == "bear"
         totalPoints += (i.weight * 4)
       elsif i.animal_type == "moose"
@@ -94,10 +94,29 @@ class User < ActiveRecord::Base
     sprintf '%06d', totalPoints
   end
   
+  # Set badges
+  
+  def load_badges
+    if points.to_i > 0
+      award(Badge.find(2)) # harvester: first harvest award
+    end
+    if true
+      award(Badge.find(1)) # gamer: user registered
+    end
+  end
+  
+  def award(badge)
+    badges << badge
+  end
+  
+  def clear_all_badges
+      badges.clear
+  end
+  
   # Current user level
   def level
     totalLevel = 0
-    self.harvests.each do |i|
+    harvests.each do |i|
       totalLevel += 1
     end
     sprintf '%02d', totalLevel
