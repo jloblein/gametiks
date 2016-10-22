@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
   # Set badges
   
   def load_badges
-    if points.to_i > 0
+    if self.points.to_i > 0
       award(Badge.find(2)) # harvester: first harvest award
     end
     if true
