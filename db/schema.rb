@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20161021144300) do
 
   add_index "badges", ["user_id"], name: "index_badges_on_user_id"
 
-# join table 
   create_table "badges_users", id: false, force: :cascade do |t|
     t.integer "badge_id"
     t.integer "user_id"
