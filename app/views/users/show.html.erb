@@ -21,7 +21,8 @@
           <% end %>
         </h4>
     </section>
-    <section class="col-md-3"></section>
+    <!--<section class="col-md-3"></section-->
+    <section>
         <div class="badges"><h3>BADGES</h3>
             <% @user.clear_all_badges %>
           <ul><% @user.load_badges %>
@@ -91,7 +92,7 @@
         initialize();
       }
 
-      google.maps.event.addDomListener(window, 'load', initialize);
+      /*google.maps.event.addDomListener(window, 'load', initialize);*/
   </script>
       
   </section>

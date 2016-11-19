@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
         totalPoints += (i.weight * 0.75).round
       elsif i.animal_type == "turkey"
         totalPoints += (i.weight * 10)
-      else # i.animal_type == "deer"
+      elsif i.animal_type == "deer"
         totalPoints += (i.weight * 4)
       end
     end
