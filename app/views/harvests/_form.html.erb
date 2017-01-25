@@ -52,14 +52,14 @@
       </div>
     </div>
     <br>
-  <div class="col-lg-6 section" id="harvest_details">
+  <div class="col-lg-6 section defined-height" id="harvest_details">
     <div id="tech-label"><h2>Weight (lbs)</h2>
     </div>
-    <%= f.label 'Weight', class: "sr-only" %><%= f.text_field :weight, class: 'form-control' %>
+    <%= f.label 'Weight', class: "sr-only" %><%= f.text_field :weight, class: 'form-control judes-addition' %>
     <br>
     <div id="tech-label"><h2>Details (optional)</h2>
     </div>
-    <%= f.label 'Details (Optional)', class: "sr-only" %><%= f.text_area(:description, :maxlength => 72, rows: 6, class: 'form-control') %>
+    <%= f.label 'Details (Optional)', class: "sr-only" %><%= f.text_area(:description, :maxlength => 72, rows: 6, class: 'form-control judes-addition') %>
     <div id="tech-label"><h2>Image Upload</h2>
     </div>
     <%= f.label :image, class: "sr-only" %>
@@ -67,7 +67,8 @@
     <br>
   </div>
   <br>
-  <div class="col-lg-6 section">
+  <div class="col-lg-6 section defined-height"> <div id="tech-label"><h2>Coordinates</h2>
+    </div>
     <div id="map"></div>
     <div id="lat-long-fields">
      <%= f.number_field :latitude, id: :latitude, step: 'any' %>

@@ -1,7 +1,9 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-3">
-    <section class="user_info">
+  <aside class="col-lg-4 col-md-4 col-sm-12">
+    <section class="user-info lcd">
+      <div id="tech-label"><h2>Gamercard</h2>
+      </div>
       <div class="user_points">
        <%= @user.points %> 
       </div>
@@ -21,22 +23,19 @@
           <% end %>
         </h4>
     </section>
-    <!--<section class="col-md-3"></section-->
     <section>
-        <div class="badges"><h3>BADGES</h3>
-            <% @user.clear_all_badges %>
-          <ul><% @user.load_badges %>
-              <% @user.badges.each do |badge| %>
-              <li><%= image_tag badge.image %></li>
-              <% end %>
-          </ul>
-        </div>
-      </section>
+      <div class="badges"><h3>BADGES</h3>
+          <% @user.clear_all_badges %>
+        <ul><% @user.load_badges %>
+            <% @user.badges.each do |badge| %>
+            <li><%= image_tag badge.image %></li>
+            <% end %>
+        </ul>
+      </div>
+    </section>
   </aside>
-      
-  <section class="col-md-8"><br>
+  <section class="col-lg-8 lcd" id="map-container">
     <div id="map"></div>
-      
     <script>
       var userLat = <%= @user.latitude %>;
       var userLng = <%= @user.longitude %>;
@@ -85,6 +84,7 @@
                 animation: google.maps.Animation.DROP,
                 title: 'test'
             });
+            
           };
       }
       
@@ -94,37 +94,32 @@
 
       /*google.maps.event.addDomListener(window, 'load', initialize);*/
   </script>
-      
   </section>
-  <section class="col-md-8">
-    <section class="harvest_catalog">
-      <% @user.harvests.order('created_at DESC').each do |harvest| %>
-        <table class="harvest_block">
-          <tr>
-          <td>
-            <%= image_tag harvest.image.url(:thumb) %>
-          </td>
-          <td class="harvest_data">
-            <%= harvest.animal_type %> registered on <%= harvest.created_at %><br>
-            Weapon Used: <%= harvest.weapon_type %><br>
-            Description: <%= harvest.description %><br>
-            Weight: <%= harvest.weight %> lbs
-          </td>
-          <td class="harvest_category">
-            <% if harvest.animal_type == "moose" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/moose.png") %>
-            <% elsif harvest.animal_type == "bear" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/bear.png") %>
-            <% elsif harvest.animal_type == "deer" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/deer.png") %>
-            <% else %><%= image_tag("https://s3.amazonaws.com/gametiks/images/turkey.png") %>
-            <% end %>
-          </td>
-          </tr>
-        </table>
-      <% end %>
-      
-    </section>
+  <br>
+  <section class="col-md-8 harvest-catalog">
+    <% @user.harvests.order('created_at DESC').each do |harvest| %>
+      <table class="harvest_block">
+        <tr>
+        <td>
+          <%= image_tag harvest.image.url(:thumb) %>
+        </td>
+        <td class="harvest_data">
+          <%= harvest.animal_type %> registered on <%= harvest.created_at %><br>
+          Weapon Used: <%= harvest.weapon_type %><br>
+          Description: <%= harvest.description %><br>
+          Weight: <%= harvest.weight %> lbs
+        </td>
+        <td class="harvest_category">
+          <% if harvest.animal_type == "moose" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/moose.png") %>
+          <% elsif harvest.animal_type == "bear" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/bear.png") %>
+          <% elsif harvest.animal_type == "deer" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/deer.png") %>
+          <% elsif harvest.animal_type == "turkey" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/turkey.png") %>
+          <% end %>
+        </td>
+        </tr>
+      </table>
+    <% end %>
   </section>
-  
 </div>
-      
 
 
