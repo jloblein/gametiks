@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
@@ -13,11 +14,14 @@ class UsersController < ApplicationController
     redirect_to root_url and return unless @user.activated
    # Gather harvest coordinates for map
     @coords = []
+    @images = []
     @user.harvests.each do |harvest| 
       @coords.push [harvest.latitude, harvest.longitude]
+      @images.push harvest.image.url(:thumb)
     end
     # coordinates saved using gon gem to talk to javascript
     gon.harvestCoords = @coords
+    gon.images = @images
   end
   
   def new
