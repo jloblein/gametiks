@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161021144300) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "badges", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161021144300) do
     t.string   "image"
   end
 
-  add_index "badges", ["user_id"], name: "index_badges_on_user_id"
+  add_index "badges", ["user_id"], name: "index_badges_on_user_id", using: :btree
 
   create_table "badges_users", id: false, force: :cascade do |t|
     t.integer "badge_id"
@@ -37,41 +40,35 @@ ActiveRecord::Schema.define(version: 20161021144300) do
     t.datetime "updated_at"
     t.string   "description"
     t.integer  "weight"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "image"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
-  add_index "harvests", ["user_id"], name: "index_harvests_on_user_id"
+  add_index "harvests", ["user_id"], name: "index_harvests_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.boolean  "admin",               default: false
+    t.boolean  "admin",             default: false
     t.string   "activation_digest"
-    t.boolean  "activated",           default: false
+    t.boolean  "activated",         default: false
     t.datetime "activated_at"
+    t.string   "avatar"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.integer  "points"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "badges", "users"
 end

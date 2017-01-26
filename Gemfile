@@ -13,6 +13,7 @@ gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
 gem 'gmaps4rails'
+gem 'pg'
 gem 'lodash-rails'
 gem 'fog',                     '1.36.0'
 gem 'will_paginate',           '3.0.7'
@@ -29,7 +30,6 @@ gem 'sdoc',                    '0.4.0', group: :doc
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.0"
-  gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
@@ -48,8 +48,6 @@ group :test do
 end
 
 group :production do
-  
-  gem 'pg'
   gem 'rails_12factor'
   gem 'puma'
 end
