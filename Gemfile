@@ -9,7 +9,6 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'geocoder'
 gem 'gon'
-gem 'sqlite3',     '1.3.9'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
@@ -30,7 +29,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.0"
-  
+  gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
